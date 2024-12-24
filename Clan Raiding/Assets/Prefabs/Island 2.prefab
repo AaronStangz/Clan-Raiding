@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneId: 0
   _assetId: 4216746010
-  serverOnly: 1
-  visibility: 0
+  serverOnly: 0
+  visibility: 2
   hasSpawned: 0
 --- !u!1 &1300714313659927828
 GameObject:

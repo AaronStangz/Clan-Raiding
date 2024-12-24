@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     float initialMouseSensitivity;
 
     public Transform playerBody;
-    public Transform playerCam;
+    public Transform playerHolderCam;
+    public GameObject playerCam;
 
     float xRotation = 0f;
 
@@ -41,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetComponent<NetworkIdentity>().isOwned)
         {
+            playerCam.SetActive(true);
+
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             if (isGrounded && velocity.y < 0)
@@ -75,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            playerHolderCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
         }
     }
